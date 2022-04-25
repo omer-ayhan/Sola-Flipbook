@@ -83,8 +83,8 @@ export default function Controls({
 					aria-expanded="false">
 					<img
 						className="flag"
-						src={`public/img/flags/${state.lang.flag}.jpg`}
-						// src={`/img/flags/${state.lang.flag}.jpg`}
+						// src={`public/img/flags/${state.lang.flag}.jpg`}
+						src={`/img/flags/${state.lang.flag}.jpg`}
 						alt={state.lang.name}
 					/>
 					<span className="mx-2 fs-5 fw-bold text-uppercase">
@@ -101,7 +101,8 @@ export default function Controls({
 								href="#">
 								<img
 									className="flag"
-									src={`public/img/flags/${flag}.jpg`}
+									// src={`public/img/flags/${flag}.jpg`}
+									src={`/img/flags/${flag}.jpg`}
 									alt={name}
 								/>
 								<span className="mx-2 fs-5 fw-bold text-uppercase">{name}</span>
@@ -157,8 +158,8 @@ export default function Controls({
 					aria-expanded="false">
 					<img
 						className="flag-mobile"
-						src={`public/img/flags/${state.lang.flag}.jpg`}
-						// src={`/img/flags/${state.lang.flag}.jpg`}
+						// src={`public/img/flags/${state.lang.flag}.jpg`}
+						src={`/img/flags/${state.lang.flag}.jpg`}
 						alt={state.lang.name}
 					/>
 					<span className="mx-2 fs-6 fw-bold text-uppercase">
@@ -175,7 +176,8 @@ export default function Controls({
 								href="#">
 								<img
 									className="flag"
-									src={`public/img/flags/${flag}.jpg`}
+									// src={`public/img/flags/${flag}.jpg`}
+									src={`/img/flags/${flag}.jpg`}
 									alt={name}
 								/>
 								<span className="mx-2 fs-5 fw-bold text-uppercase">{name}</span>

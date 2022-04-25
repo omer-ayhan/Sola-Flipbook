@@ -10,6 +10,10 @@
   font-size: 1.05rem;
 }
 
+.cover-title {
+  font-size: var(--cover-title);
+}
+
 .flip-book {
   -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
           box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
@@ -215,6 +219,12 @@
 @media screen and (max-width: 374px) {
   .price {
     font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .top-head {
+    display: none !important;
   }
 }
 

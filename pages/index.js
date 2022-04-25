@@ -66,7 +66,7 @@ export default function Home({ allPages, brands }) {
 					showCover={true}
 					mobileScrollSupport={true}
 					onFlip={onPage}
-					// onChangeOrientation={this.onChangeOrientation}
+					onChangeState={(e) => console.log(e)}
 					className="demo-book"
 					ref={flipBook}>
 					<PageCover pages={pages} brands={brands} pageFlip={pageFlip} />
@@ -176,9 +176,18 @@ export async function getServerSideProps() {
 			]);
 
 		allPages = [
-			{ title: "new", data: newProducts.slice(0, 6) },
-			{ title: "new", data: newProducts.slice(6, 12) },
-			{ title: "new", data: newProducts.slice(12, 18) },
+			{
+				title: "new",
+				data: newProducts.slice(0, 6),
+			},
+			{
+				title: "new",
+				data: newProducts.slice(6, 12),
+			},
+			{
+				title: "new",
+				data: newProducts.slice(12, 18),
+			},
 			{ title: "popular", data: popularProducts.slice(0, 6) },
 			{ title: "popular", data: popularProducts.slice(6, 12) },
 		];

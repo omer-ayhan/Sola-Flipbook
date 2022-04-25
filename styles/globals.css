@@ -30,13 +30,15 @@ a:hover {
 
 :root {
 	--page-height: 250px;
-	--brand-img: 70px;
-	--logo: 110px;
+	--brand-img: 65px;
+	--logo: 100px;
+	--cover-title: 18px;
 }
 
 @media screen and (max-width: 374px) {
 	:root {
 		--page-height: 210px;
+		--logo: 80px;
 		/* --brand-img: 50px; */
 	}
 }
@@ -44,21 +46,28 @@ a:hover {
 @media (min-width: 375px) and (max-width: 413px) {
 	:root {
 		--page-height: 250px;
-		--logo: 130px;
+		--logo: 80px;
 	}
 }
 
 @media (min-width: 414px) and (max-width: 568px) {
 	:root {
 		--page-height: 280px;
-		--brand-img: 90px;
-		--logo: 150px;
+		/* --brand-img: 90px; */
+		/* --logo: 150px; */
+		--cover-title: 18px;
 	}
 }
 
 @media (min-width: 569px) and (max-width: 629px) {
 	:root {
-		--brand-img: 100px;
+		/* --brand-img: 100px; */
+	}
+}
+@media (min-width: 630px) and (max-width: 910px) {
+	:root {
+		--logo: 70px;
+		--brand-img: 52px;
 	}
 }
 
@@ -70,38 +79,45 @@ a:hover {
 
 @media (min-width: 768px) and (max-width: 979px) {
 	:root {
-		--logo: 150px;
+		/* --logo: 150px; */
 	}
 }
 
 @media (min-width: 980px) and (max-width: 1024px) {
 	:root {
 		--page-height: 310px;
-		--brand-img: 110px;
-		--logo: 160px;
+		/* --brand-img: 110px; */
+		/* --logo: 160px; */
 	}
 }
 
 @media (min-width: 1025px) and (max-width: 1115px) {
 	:root {
 		--page-height: 340px;
-		--brand-img: 110px;
-		--logo: 170px;
+		/* --brand-img: 85px; */
+		/* --logo: 170px; */
+	}
+}
+
+@media (min-width: 1025px) {
+	:root {
+		--brand-img: 85px;
 	}
 }
 
 @media (min-width: 1116px) and (max-width: 1366px) {
 	:root {
 		--page-height: 385px;
-		--brand-img: 120px;
-		--logo: 180px;
+		/* --brand-img: 120px; */
+		/* --logo: 180px; */
 	}
 }
 
 @media (min-width: 1367px) {
 	:root {
 		--page-height: 370px;
-		--brand-img: 120px;
-		--logo: 190px;
+		--brand-img: 100px;
+		--logo: 130px;
+		--cover-title: 25px;
 	}
 }
