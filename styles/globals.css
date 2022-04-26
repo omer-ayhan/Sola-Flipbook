@@ -1,123 +1,148 @@
 html,
 body {
-	padding: 0;
-	margin: 0;
-	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  transition: all 250ms ease;
 }
 
 a {
-	color: inherit;
-	text-decoration: none;
-	transition: all 250ms ease-in-out;
+  color: inherit;
+  text-decoration: none;
+  transition: all 250ms ease-in-out;
 }
 
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 div#__next {
-	overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 .cursor-pointer {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 a:hover {
-	color: var(--color-primary);
+  color: var(--color-primary);
 }
 
 :root {
-	--page-height: 250px;
-	--brand-img: 65px;
-	--logo: 100px;
-	--cover-title: 18px;
+  --page-height: 250px;
+  --brand-img: 65px;
+  --logo: 100px;
+  --cover-title: 18px;
 }
 
 @media screen and (max-width: 374px) {
-	:root {
-		--page-height: 210px;
-		--logo: 80px;
-		/* --brand-img: 50px; */
-	}
+  :root {
+    --page-height: 210px;
+    --logo: 80px;
+    --brand-img: 60px;
+  }
 }
 
 @media (min-width: 375px) and (max-width: 413px) {
-	:root {
-		--page-height: 250px;
-		--logo: 80px;
-	}
+  :root {
+    --page-height: 250px;
+    --logo: 80px;
+  }
+}
+
+@media (min-width: 414px) and (max-width: 630px) {
+  :root {
+    --brand-img: 75px;
+  }
 }
 
 @media (min-width: 414px) and (max-width: 568px) {
-	:root {
-		--page-height: 280px;
-		/* --brand-img: 90px; */
-		/* --logo: 150px; */
-		--cover-title: 18px;
-	}
+  :root {
+    --page-height: 280px;
+    /* --brand-img: 90px; */
+    /* --logo: 150px; */
+    --cover-title: 18px;
+  }
 }
 
 @media (min-width: 569px) and (max-width: 629px) {
-	:root {
-		/* --brand-img: 100px; */
-	}
+  :root {
+    --brand-img: 85px;
+  }
 }
 @media (min-width: 630px) and (max-width: 910px) {
-	:root {
-		--logo: 70px;
-		--brand-img: 52px;
-	}
+  :root {
+    --logo: 70px;
+  }
+}
+
+@media (min-width: 630px) and (max-width: 730px) {
+  :root {
+    --brand-img: 55px;
+  }
+}
+
+@media (min-width: 731px) and (max-width: 910px) {
+  :root {
+    --brand-img: 70px;
+  }
 }
 
 @media (min-width: 569px) and (max-width: 767px) {
-	:root {
-		--page-height: 220px;
-	}
+  :root {
+    /* --page-height: 220px; */
+    --page-height: 330px;
+  }
 }
 
-@media (min-width: 768px) and (max-width: 979px) {
-	:root {
-		/* --logo: 150px; */
-	}
+@media (min-width: 910px) and (max-width: 979px) {
+  :root {
+    --brand-img: 75px;
+  }
 }
+
+/* @media (min-width: 768px) and (max-width: 979px) {
+  :root {
+    --logo: 150px; 
+  }
+} */
 
 @media (min-width: 980px) and (max-width: 1024px) {
-	:root {
-		--page-height: 310px;
-		/* --brand-img: 110px; */
-		/* --logo: 160px; */
-	}
+  :root {
+    --page-height: 310px;
+    --brand-img: 90px;
+    /* --logo: 160px; */
+  }
 }
 
 @media (min-width: 1025px) and (max-width: 1115px) {
-	:root {
-		--page-height: 340px;
-		/* --brand-img: 85px; */
-		/* --logo: 170px; */
-	}
+  :root {
+    --page-height: 340px;
+    /* --brand-img: 85px; */
+    /* --logo: 170px; */
+  }
 }
 
 @media (min-width: 1025px) {
-	:root {
-		--brand-img: 85px;
-	}
+  :root {
+    --brand-img: 85px;
+  }
 }
 
 @media (min-width: 1116px) and (max-width: 1366px) {
-	:root {
-		--page-height: 385px;
-		/* --brand-img: 120px; */
-		/* --logo: 180px; */
-	}
+  :root {
+    --page-height: 385px;
+    /* --brand-img: 120px; */
+    /* --logo: 180px; */
+  }
 }
 
-@media (min-width: 1367px) {
-	:root {
-		--page-height: 370px;
-		--brand-img: 100px;
-		--logo: 130px;
-		--cover-title: 25px;
-	}
+@media (min-width: 1200px) {
+  :root {
+    --page-height: 370px;
+    --brand-img: 100px;
+    --logo: 130px;
+    --cover-title: 25px;
+  }
 }

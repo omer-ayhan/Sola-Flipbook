@@ -5,9 +5,12 @@
   background-size: cover;
 }
 
-.title,
 .page-title {
   font-size: 1.05rem;
+}
+
+.title {
+  font-size: 1rem;
 }
 
 .cover-title {
@@ -101,7 +104,7 @@
 }
 
 .page .page-content .page-image {
-  height: 60%;
+  height: 77%;
 }
 
 .page .page-content .page-text {
@@ -226,6 +229,15 @@
   .top-head {
     display: none !important;
   }
+  .brand {
+    padding: 12px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .page .page-content .page-image {
+    height: 60%;
+  }
 }
 
 @media screen and (max-width: 500px) {
@@ -235,20 +247,44 @@
   .title {
     font-size: 0.85rem;
   }
+}
+
+@media (min-width: 630px) and (max-width: 719px) {
   .page .page-content .page-image {
-    height: 55%;
+    height: 70%;
+  }
+}
+
+@media (min-width: 425px) and (max-width: 768px) {
+  .brand {
+    padding: 12px;
   }
 }
 
 @media (min-width: 501px) and (max-width: 768px) {
   .title {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
   }
   .price {
-    font-size: 0.9rem;
+    font-size: 1.1rem;
   }
+}
+
+@media (min-width: 630px) and (max-width: 700px) {
+  .brand {
+    padding: 5px 8px;
+  }
+}
+
+@media (min-width: 720px) and (max-width: 769px) {
   .page .page-content .page-image {
-    height: 60%;
+    height: 73%;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 845px) {
+  .page .page-content .page-image {
+    height: 66%;
   }
 }
 
@@ -256,7 +292,13 @@
   .page-title {
     font-size: 1.5rem;
   }
+  .brand {
+    padding: 13px;
+  }
+  .title {
+    font-size: 1.15rem;
+  }
   .page .page-content .page-image {
-    height: 70%;
+    height: 80%;
   }
 }
