@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect, useContext } from "react";
 import axios from "axios";
 import HTMLFlipBook from "react-pageflip";
 import useTranslation from "next-translate/useTranslation";
+import { useRouter } from "next/router";
 
 import { sources } from "../sources";
 import { encodeURLString } from "../utils/utils";
@@ -21,6 +22,7 @@ export default function Home({ allPages, brands }) {
     name: "ru",
     flag: "ru",
   });
+  const router = useRouter();
 
   const nextPage = () => flipBook.current.pageFlip().flipNext();
 
@@ -45,6 +47,10 @@ export default function Home({ allPages, brands }) {
       type: CHANGE_LANG,
       payload: lang,
     });
+    if (router.locale !== lang.name)
+      router.push(router.asPath, router.asPath, {
+        locale: lang.name,
+      });
   }, []);
 
   return (
