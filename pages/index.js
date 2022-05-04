@@ -57,20 +57,12 @@ export default function Home({ allPages, brands }) {
     <>
       <div
         style={{
-          //   maxWidth: "1300px",
           height: "100vh",
           transition: "all 0.5s ease-in-out",
         }}
-        // className="d-flex flex-column align-items-center justify-content-center book-overflow"
         className="d-flex flex-column align-items-center justify-content-center overflow-hidden">
         <HTMLFlipBook
           style={{
-            // marginLeft:
-            //   page > 0 &&
-            //   typeof window !== "undefined" &&
-            //   window.innerWidth > 1430
-            //     ? "10%"
-            //     : "0",
             transition: "all 0.5s ease-in-out",
           }}
           width={550}
@@ -84,31 +76,10 @@ export default function Home({ allPages, brands }) {
           showCover={true}
           mobileScrollSupport={true}
           onFlip={onPage}
-          //   onChangeState={(e) => console.log(e)}
+          disableFlipByClick={true}
           className="demo-book"
           ref={flipBook}>
           <PageCover pages={pages} brands={brands} pageFlip={pageFlip} />
-
-          {/* <Page className="page">
-            <div className="row justify-content-center h-100 m-2">
-              {brands.slice(8, 26).map((brandItem, i) => (
-                <div
-                  onClick={() =>
-                    brandItem.pageNum === 30 || brandItem.pageNum === 31
-                      ? lastPage()
-                      : pageFlip(brandItem.pageNum + 3, ["top"])
-                  }
-                  key={`${i}._._!`}
-                  className="col-3 my-1 cursor-pointer">
-                  <img
-                    className="border brand-img-2"
-                    src={`${sources.brand}${brandItem.guidName}`}
-                    alt={brandItem.brandName}
-                  />
-                </div>
-              ))}
-            </div>
-          </Page> */}
 
           {allPages.map((page, index) => (
             <Page key={`${index}.|`} className="page" number={index}>
