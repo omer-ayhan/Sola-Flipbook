@@ -116,63 +116,69 @@ export default function Controls({
 
 	const mobileControls = () => (
 		<>
-			<div
-				onClick={() => firstPage("desktop")}
-				className={`controls-btn ${currentPage === 0 && "disabled"}`}>
-				<ion-icon name="play-back-outline" size="large" />
-				<p className="p-0 m-0 text-center">{t("first")}</p>
-			</div>
-			<div
-				onClick={() => prevPage("desktop")}
-				className={`controls-btn ${currentPage === 0 && "disabled"}`}>
-				<ion-icon name="chevron-back-outline" size="large" />
-				<p className="p-0 m-0 text-center">{t("prev")}</p>
-			</div>
-			<div className="dropdown">
-				<a
-					className="btn dropdown-toggle"
-					href="#"
-					role="button"
-					id="dropdownMenuLink"
-					data-bs-toggle="dropdown"
-					aria-expanded="false">
-					<img
-						className="flag"
-						src={`public/img/flags/${state.lang.flag}.jpg`}
-						// src={`/img/flags/${state.lang.flag}.jpg`}
-						alt={state.lang.name}
-					/>
-					<span className="mx-2 fs-5 fw-bold text-uppercase">
-						{state.lang.name}
-					</span>
-				</a>
+			<div className="d-flex">
+				<div
+					onClick={prevPage}
+					className={`controls-btn ${currentPage === 0 && "disabled"}`}>
+					<ion-icon name="chevron-back-outline" size="large" />
+					<p className="p-0 m-0 text-center">{t("prev")}</p>
+				</div>
+				<div className="dropdown">
+					<a
+						className="btn dropdown-toggle"
+						href="#"
+						role="button"
+						id="dropdownMenuLink"
+						data-bs-toggle="dropdown"
+						aria-expanded="false">
+						<img
+							className="flag"
+							src={`public/img/flags/${state.lang.flag}.jpg`}
+							// src={`/img/flags/${state.lang.flag}.jpg`}
+							alt={state.lang.name}
+						/>
+						<span className="mx-2 fs-5 fw-bold text-uppercase">
+							{state.lang.name}
+						</span>
+					</a>
 
-				<ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-					{langs.map(({ name, flag }, i) => (
-						<li key={`${name}.|${i}`}>
-							<a
-								onClick={() => changeLang(name, flag)}
-								className="dropdown-item"
-								href="#">
-								<img
-									className="flag"
-									src={`public/img/flags/${flag}.jpg`}
-									// src={`/img/flags/${flag}.jpg`}
-									alt={name}
-								/>
-								<span className="mx-2 fs-5 fw-bold text-uppercase">{name}</span>
-							</a>
-						</li>
-					))}
-				</ul>
+					<ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+						{langs.map(({ name, flag }, i) => (
+							<li key={`${name}.|${i}`}>
+								<a
+									onClick={() => changeLang(name, flag)}
+									className="dropdown-item"
+									href="#">
+									<img
+										className="flag"
+										src={`public/img/flags/${flag}.jpg`}
+										// src={`/img/flags/${flag}.jpg`}
+										alt={name}
+									/>
+									<span className="mx-2 fs-5 fw-bold text-uppercase">
+										{name}
+									</span>
+								</a>
+							</li>
+						))}
+					</ul>
+				</div>
+				<div onClick={nextPage} className="controls-btn">
+					<ion-icon name="chevron-forward-outline" size="large" />
+					<p className="p-0 m-0 text-center">{t("next")}</p>
+				</div>
 			</div>
-			<div onClick={nextPage} className="controls-btn">
-				<ion-icon name="chevron-forward-outline" size="large" />
-				<p className="p-0 m-0 text-center">{t("next")}</p>
-			</div>
-			<div onClick={lastPage} className="controls-btn">
-				<ion-icon name="play-forward-outline" size="large" />
-				<p className="p-0 m-0 text-center">{t("last")}</p>
+			<div className="d-flex">
+				<div
+					onClick={firstPage}
+					className={`controls-btn ${currentPage === 0 && "disabled"}`}>
+					<ion-icon name="play-back-outline" size="large" />
+					<p className="p-0 m-0 text-center">{t("first")}</p>
+				</div>
+				<div onClick={lastPage} className="controls-btn">
+					<ion-icon name="play-forward-outline" size="large" />
+					<p className="p-0 m-0 text-center">{t("last")}</p>
+				</div>
 			</div>
 		</>
 	);
@@ -267,7 +273,7 @@ export default function Controls({
 				style={{
 					minWidth: "300px",
 				}}
-				className="d-flex d-md-none justify-content-around align-items-center">
+				className="d-flex flex-column d-md-none justify-content-around align-items-center">
 				{mobileControls()}
 			</div>
 		</div>
