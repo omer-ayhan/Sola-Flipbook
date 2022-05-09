@@ -116,37 +116,17 @@ export default function Controls({
 
 	const mobileControls = () => (
 		<>
-			<div>
-				<div
-					onClick={firstPage}
-					className={`controls-btn ${currentPage === 0 && "disabled"}`}>
-					<ion-icon name="play-back-outline" size="small" />
-					<p className="p-0 m-0 text-center control-mobile-title">
-						{t("first")}
-					</p>
-				</div>
-				<div onClick={lastPage} className="controls-btn">
-					<ion-icon name="play-forward-outline" size="small" />
-					<p className="p-0 m-0 text-center control-mobile-title">
-						{t("last")}
-					</p>
-				</div>
+			<div
+				onClick={() => firstPage("desktop")}
+				className={`controls-btn ${currentPage === 0 && "disabled"}`}>
+				<ion-icon name="play-back-outline" size="large" />
+				<p className="p-0 m-0 text-center">{t("first")}</p>
 			</div>
-			<div>
-				<div
-					onClick={prevPage}
-					className={`controls-btn ${currentPage === 0 && "disabled"}`}>
-					<ion-icon name="chevron-back-outline" size="small" />
-					<p className="p-0 m-0 text-center control-mobile-title">
-						{t("prev")}
-					</p>
-				</div>
-				<div onClick={nextPage} className="controls-btn">
-					<ion-icon name="chevron-forward-outline" size="small" />
-					<p className="p-0 m-0 text-center control-mobile-title">
-						{t("next")}
-					</p>
-				</div>
+			<div
+				onClick={() => prevPage("desktop")}
+				className={`controls-btn ${currentPage === 0 && "disabled"}`}>
+				<ion-icon name="chevron-back-outline" size="large" />
+				<p className="p-0 m-0 text-center">{t("prev")}</p>
 			</div>
 			<div className="dropdown">
 				<a
@@ -157,12 +137,12 @@ export default function Controls({
 					data-bs-toggle="dropdown"
 					aria-expanded="false">
 					<img
-						className="flag-mobile"
+						className="flag"
 						src={`public/img/flags/${state.lang.flag}.jpg`}
 						// src={`/img/flags/${state.lang.flag}.jpg`}
 						alt={state.lang.name}
 					/>
-					<span className="mx-2 fs-6 fw-bold text-uppercase">
+					<span className="mx-2 fs-5 fw-bold text-uppercase">
 						{state.lang.name}
 					</span>
 				</a>
@@ -186,8 +166,91 @@ export default function Controls({
 					))}
 				</ul>
 			</div>
+			<div onClick={nextPage} className="controls-btn">
+				<ion-icon name="chevron-forward-outline" size="large" />
+				<p className="p-0 m-0 text-center">{t("next")}</p>
+			</div>
+			<div onClick={lastPage} className="controls-btn">
+				<ion-icon name="play-forward-outline" size="large" />
+				<p className="p-0 m-0 text-center">{t("last")}</p>
+			</div>
 		</>
 	);
+
+	// const mobileControls = () => (
+	// 	<>
+	// 		<div>
+	// 			<div
+	// 				onClick={firstPage}
+	// 				className={`controls-btn ${currentPage === 0 && "disabled"}`}>
+	// 				<ion-icon name="play-back-outline" size="small" />
+	// 				<p className="p-0 m-0 text-center control-mobile-title">
+	// 					{t("first")}
+	// 				</p>
+	// 			</div>
+	// 			<div onClick={lastPage} className="controls-btn">
+	// 				<ion-icon name="play-forward-outline" size="small" />
+	// 				<p className="p-0 m-0 text-center control-mobile-title">
+	// 					{t("last")}
+	// 				</p>
+	// 			</div>
+	// 		</div>
+	// 		<div>
+	// 			<div
+	// 				onClick={prevPage}
+	// 				className={`controls-btn ${currentPage === 0 && "disabled"}`}>
+	// 				<ion-icon name="chevron-back-outline" size="small" />
+	// 				<p className="p-0 m-0 text-center control-mobile-title">
+	// 					{t("prev")}
+	// 				</p>
+	// 			</div>
+	// 			<div onClick={nextPage} className="controls-btn">
+	// 				<ion-icon name="chevron-forward-outline" size="small" />
+	// 				<p className="p-0 m-0 text-center control-mobile-title">
+	// 					{t("next")}
+	// 				</p>
+	// 			</div>
+	// 		</div>
+	// 		<div className="dropdown">
+	// 			<a
+	// 				className="btn dropdown-toggle"
+	// 				href="#"
+	// 				role="button"
+	// 				id="dropdownMenuLink"
+	// 				data-bs-toggle="dropdown"
+	// 				aria-expanded="false">
+	// 				<img
+	// 					className="flag-mobile"
+	// 					src={`public/img/flags/${state.lang.flag}.jpg`}
+	// 					// src={`/img/flags/${state.lang.flag}.jpg`}
+	// 					alt={state.lang.name}
+	// 				/>
+	// 				<span className="mx-2 fs-6 fw-bold text-uppercase">
+	// 					{state.lang.name}
+	// 				</span>
+	// 			</a>
+
+	// 			<ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+	// 				{langs.map(({ name, flag }, i) => (
+	// 					<li key={`${name}.|${i}`}>
+	// 						<a
+	// 							onClick={() => changeLang(name, flag)}
+	// 							className="dropdown-item"
+	// 							href="#">
+	// 							<img
+	// 								className="flag"
+	// 								src={`public/img/flags/${flag}.jpg`}
+	// 								// src={`/img/flags/${flag}.jpg`}
+	// 								alt={name}
+	// 							/>
+	// 							<span className="mx-2 fs-5 fw-bold text-uppercase">{name}</span>
+	// 						</a>
+	// 					</li>
+	// 				))}
+	// 			</ul>
+	// 		</div>
+	// 	</>
+	// );
 
 	return (
 		<div
