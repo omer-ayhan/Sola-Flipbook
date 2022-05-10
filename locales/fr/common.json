@@ -1,8 +1,8 @@
 {
-  "new": "Nouveaux produits",
-  "popular": "Produits populaires",
-  "next": "Suivante",
-  "prev": "Précédente",
-  "first": "Première page",
-  "last": "Dernière page"
+	"new": "Nouveaux produits",
+	"popular": "Produits populaires",
+	"next": "Page suivante",
+	"prev": "Page précédente",
+	"first": "Première page",
+	"last": "Dernière page"
 }

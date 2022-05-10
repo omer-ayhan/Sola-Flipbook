@@ -1,8 +1,8 @@
 {
-  "new": "Yeni Ürünler",
-  "popular": "Çok Satanlar",
-  "next": "İleri",
-  "prev": "Geri",
-  "first": "İlk Sayfa",
-  "last": "Son Sayfa"
+	"new": "Yeni Ürünler",
+	"popular": "Çok Satanlar",
+	"next": "Sonraki Sayfa",
+	"prev": "Önceki Sayfa",
+	"first": "İlk Sayfa",
+	"last": "Son Sayfa"
 }
