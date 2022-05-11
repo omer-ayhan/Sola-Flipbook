@@ -66,7 +66,7 @@ export default function Home({ allPages, brands }) {
 					height: "100vh",
 					transition: "all 0.5s ease-in-out",
 				}}
-				className="d-flex flex-column align-items-center justify-content-start overflow-hidden">
+				className="d-flex flex-column align-items-center justify-content-start overflow-hidden py-2 py-md-3">
 				<HTMLFlipBook
 					style={{
 						transition: "all 0.5s ease-in-out",

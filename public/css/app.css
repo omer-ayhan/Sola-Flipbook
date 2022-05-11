@@ -214,8 +214,27 @@
   font-size: 0.9rem;
 }
 
+.controls-main {
+  bottom: 0;
+  max-width: 90px;
+  padding: 10px;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.controls-main p {
+  font-size: 0.9rem;
+}
+
+.controls-main ion-icon {
+  color: #fff;
+}
+
 .disabled {
-  opacity: 0.5;
+  opacity: 0.2;
   pointer-events: none;
 }
 
@@ -246,6 +265,18 @@
   }
   .title {
     font-size: 0.85rem;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .d-controls-desktop {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 519px) {
+  .d-controls-mobile {
+    display: none !important;
   }
 }
 
@@ -282,6 +313,12 @@
   }
 }
 
+@media (min-width: 1120px) {
+  .controls-main {
+    bottom: 50%;
+  }
+}
+
 @media (min-width: 1367px) {
   .page-title {
     font-size: 1.5rem;
@@ -290,9 +327,15 @@
     padding: 13px;
   }
   .title {
-    font-size: 1.15rem;
+    font-size: 1.05rem;
   }
   .page .page-content .page-image {
-    height: 78%;
+    height: 71%;
+  }
+}
+
+@media (min-width: 1440px) {
+  .title {
+    font-size: 1.15rem;
   }
 }
