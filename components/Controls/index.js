@@ -33,6 +33,7 @@ export default function Controls({
 	lastPage,
 	nextPage,
 	prevPage,
+	dataLength,
 }) {
 	const { t } = useTranslation("common");
 	const router = useRouter();
@@ -193,7 +194,11 @@ export default function Controls({
 				<ion-icon name="chevron-back-outline" size="large" />
 				<p className="p-0 m-0 text-center text-white">{t("prev")}</p>
 			</div>
-			<div onClick={nextPage} className="position-fixed end-0 controls-main">
+			<div
+				onClick={nextPage}
+				className={`position-fixed end-0 controls-main ${
+					currentPage === dataLength && "disabled"
+				}`}>
 				<ion-icon name="chevron-forward-outline" size="large" />
 				<p className="p-0 m-0 text-center text-white">{t("next")}</p>
 			</div>

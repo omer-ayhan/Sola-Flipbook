@@ -82,6 +82,8 @@ export default function Home({ allPages, brands }) {
 					showCover={true}
 					mobileScrollSupport={true}
 					onFlip={onPage}
+					swipeDistance={60}
+					clickEventForward={false}
 					disableFlipByClick={true}
 					className="demo-book"
 					ref={flipBook}>
@@ -139,6 +141,7 @@ export default function Home({ allPages, brands }) {
 					prevPage={prevPage}
 					firstPage={firstPage}
 					lastPage={lastPage}
+					dataLength={allPages.length}
 				/>
 			</div>
 		</>
@@ -172,18 +175,22 @@ export async function getServerSideProps() {
 				),
 			]);
 
+		const newProductsFiltered = newProducts.filter((product) => {
+			return product.picture_1 !== null;
+		});
+
 		allPages = [
 			{
 				title: "new",
-				data: newProducts.slice(0, 6),
+				data: newProductsFiltered.slice(0, 6),
 			},
 			{
 				title: "new",
-				data: newProducts.slice(6, 12),
+				data: newProductsFiltered.slice(6, 12),
 			},
 			{
 				title: "new",
-				data: newProducts.slice(12, 18),
+				data: newProductsFiltered.slice(12, 18),
 			},
 			{ title: "popular", data: popularProducts.slice(0, 6) },
 			{ title: "popular", data: popularProducts.slice(6, 12) },

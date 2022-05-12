@@ -241,6 +241,7 @@
 @media screen and (max-width: 374px) {
   .price {
     font-size: 1rem;
+    margin: 0;
   }
 }
 
@@ -256,6 +257,12 @@
 @media screen and (max-width: 400px) {
   .page .page-content .page-image {
     height: 60%;
+  }
+}
+
+@media (min-width: 400px) and (max-width: 450px) {
+  .page .page-content .page-image {
+    height: 71%;
   }
 }
 
@@ -282,7 +289,7 @@
 
 @media (min-width: 630px) and (max-width: 719px) {
   .page .page-content .page-image {
-    height: 70%;
+    height: 65%;
   }
 }
 
@@ -301,15 +308,15 @@
   }
 }
 
-@media (min-width: 720px) and (max-width: 769px) {
-  .page .page-content .page-image {
-    height: 73%;
-  }
-}
-
 @media (min-width: 769px) and (max-width: 845px) {
   .page .page-content .page-image {
     height: 66%;
+  }
+}
+
+@media (min-width: 720px) {
+  .page .page-content .page-image {
+    height: 71%;
   }
 }
 
@@ -328,9 +335,6 @@
   }
   .title {
     font-size: 1.05rem;
-  }
-  .page .page-content .page-image {
-    height: 71%;
   }
 }
 
