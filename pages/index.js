@@ -83,7 +83,6 @@ export default function Home({ allPages, brands }) {
 					mobileScrollSupport={true}
 					onFlip={onPage}
 					swipeDistance={60}
-					clickEventForward={false}
 					disableFlipByClick={true}
 					className="demo-book"
 					ref={flipBook}>
