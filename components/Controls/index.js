@@ -220,7 +220,7 @@ export default function Controls({
 						// src={`/img/flags/${state.lang.flag}.jpg`}
 						alt={state.lang.name}
 					/>
-					<span className="mx-2 fs-5 fw-bold text-uppercase">
+					<span className="mx-2 fs-5 fw-bold text-uppercase text-white">
 						{state.lang.name}
 					</span>
 				</a>

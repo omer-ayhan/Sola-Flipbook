@@ -104,8 +104,9 @@ export default function Home({ allPages, brands }) {
 								{page.data.map((pageItem, i) => (
 									<div
 										key={`${i}.||._`}
-										className="col-4 page-item-wrapper d-flex justify-content-center">
+										className="col-4 px-2 page-item-wrapper">
 										<a
+											className="d-flex flex-column align-items-center"
 											href={`https://solastore.com.tr/detail/${encodeURLString(
 												pageItem.productShortName
 											)}:${pageItem.masterProductID}?selected=${

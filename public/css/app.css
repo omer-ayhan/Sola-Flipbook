@@ -238,6 +238,12 @@
   pointer-events: none;
 }
 
+@media screen and (max-width: 330px) {
+  .title {
+    font-size: 0.75rem;
+  }
+}
+
 @media screen and (max-width: 374px) {
   .price {
     font-size: 1rem;
@@ -266,12 +272,15 @@
   }
 }
 
+@media (min-width: 330px) and (max-width: 500px) {
+  .title {
+    font-size: 0.85rem;
+  }
+}
+
 @media screen and (max-width: 500px) {
   .book-overflow {
     overflow: hidden !important;
-  }
-  .title {
-    font-size: 0.85rem;
   }
 }
 
@@ -335,11 +344,5 @@
   }
   .title {
     font-size: 1.05rem;
-  }
-}
-
-@media (min-width: 1440px) {
-  .title {
-    font-size: 1.15rem;
   }
 }
