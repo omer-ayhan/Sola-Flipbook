@@ -204,7 +204,7 @@ export async function getServerSideProps() {
 
 				allPages.push({
 					title: brandName,
-					data: brandData.slice(0, 6),
+					data: brandData.reverse().slice(0, 6),
 				});
 			})
 		);
