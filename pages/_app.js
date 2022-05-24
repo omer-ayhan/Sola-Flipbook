@@ -1,18 +1,18 @@
 import { useEffect } from "react";
 import Head from "next/head";
+import Script from "next/script";
 import ym, { YMInitializer } from "react-yandex-metrika";
 import { useRouter } from "next/router";
 
 import "../styles/colors.css";
 import "../styles/globals.css";
 import "../public/css/app.min.css";
-import Script from "next/script";
 import StoreProvider from "../context/StoreProvider";
 
-const analyticID1 = "UA-73451034-1";
-const analyticID2 = "AW-359547484";
-const analyticID3 = "G-SWHHCJ1EK6";
-const analyticID4 = "GTM-M4BCPX3";
+const analyticID1 = "G-SZT0GVYZDK";
+// const analyticID2 = "AW-359547484";
+// const analyticID3 = "G-SWHHCJ1EK6";
+// const analyticID4 = "GTM-M4BCPX3";
 
 function MyApp({ Component, pageProps }) {
 	const router = useRouter();
@@ -22,12 +22,12 @@ function MyApp({ Component, pageProps }) {
 			window.gtag("config", analyticID1, {
 				page_path: url,
 			});
-			window.gtag("config", analyticID2, {
-				page_path: url,
-			});
-			window.gtag("config", analyticID3, {
-				page_path: url,
-			});
+			// window.gtag("config", analyticID2, {
+			// 	page_path: url,
+			// });
+			// window.gtag("config", analyticID3, {
+			// 	page_path: url,
+			// });
 		}
 	};
 
@@ -129,17 +129,9 @@ function MyApp({ Component, pageProps }) {
 					defer
 				/>
 				{/* Init scripts end */}
-				<Script
-					src={`https://www.googletagmanager.com/gtag/js?id=${analyticID4}`}
-					strategy="afterInteractive"
-				/>
-				<Script
-					id="google-tag-manager"
-					strategy="afterInteractive">{`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-          })(window,document,'script','dataLayer','${analyticID4}');`}</Script>
+				<script
+					defer
+					src={`https://www.googletagmanager.com/gtag/js?id=${analyticID1}`}></script>
 			</Head>
 			<StoreProvider>
 				<Component {...pageProps} />
@@ -160,7 +152,7 @@ function MyApp({ Component, pageProps }) {
 				strategy="afterInteractive"
 			/>
 			<YMInitializer
-				accounts={[69119899]}
+				accounts={[88878434]}
 				options={{
 					accurateTrackBounce: true,
 					webvisor: true,
@@ -171,29 +163,7 @@ function MyApp({ Component, pageProps }) {
 				}}
 				version="2"
 			/>
-			<Script
-				src={`https://www.googletagmanager.com/gtag/js?id=${analyticID1}`}
-				strategy="afterInteractive"
-			/>
-			<Script
-				src={`https://www.googletagmanager.com/gtag/js?id=${analyticID2}`}
-				strategy="afterInteractive"
-			/>
-			<Script
-				src={`https://www.googletagmanager.com/gtag/js?id=${analyticID3}`}
-				strategy="afterInteractive"
-			/>
 
-			<Script
-				id={`google-analytics-${analyticID2}`}
-				strategy="afterInteractive">
-				{`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){window.dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', '${analyticID2}'); 
-          `}
-			</Script>
 			<Script
 				id={`google-analytics-${analyticID1}`}
 				strategy="afterInteractive">
@@ -204,15 +174,7 @@ function MyApp({ Component, pageProps }) {
           gtag('config', '${analyticID1}'); 
           `}
 			</Script>
-			<Script
-				id={`google-analytics-${analyticID3}`}
-				strategy="afterInteractive">
-				{`window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
 
-          gtag('config', '${analyticID3}');`}
-			</Script>
 			<Script id="facebook-analytics" strategy="afterInteractive">
 				{`!function(f,b,e,v,n,t,s)
       {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
