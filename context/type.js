@@ -1,1 +1,2 @@
 export const CHANGE_LANG = "CHANGE_LANG";
+export const CHANGE_TARGET_BRAND = "CHANGE_TARGET_BRAND";

@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import useTranslation from "next-translate/useTranslation";
 
 import { sources } from "../../sources";
+import { StoreContext } from "../../context/StoreProvider";
+import { CHANGE_TARGET_BRAND } from "../../context/type";
 
-const PageCover = React.forwardRef(({ pages, brands, pageFlip }, ref) => {
+const PageCover = React.forwardRef(({ pages, brands, nextPage }, ref) => {
 	const { t } = useTranslation("common");
+	const { dispatch } = useContext(StoreContext);
+
+	const handleBrandClick = (brandName) => {
+		dispatch({
+			type: CHANGE_TARGET_BRAND,
+			payload: brandName,
+		});
+		nextPage();
+	};
 
 	return (
 		<div className="page page-cover pt-2" ref={ref} data-density="hard">
@@ -24,7 +35,7 @@ const PageCover = React.forwardRef(({ pages, brands, pageFlip }, ref) => {
 						// src="/img/placeholder.jpg"
 						alt="Sola Store"
 					/>
-					<div className="w-100">
+					{/* <div className="w-100">
 						{pages.map(({ title, pageNumber }) => (
 							<a
 								key={`${pageNumber}.||`}
@@ -38,13 +49,13 @@ const PageCover = React.forwardRef(({ pages, brands, pageFlip }, ref) => {
 								</p>
 							</a>
 						))}
-					</div>
+					</div> */}
 				</div>
 				<div className="row justify-content-center">
 					{brands.map((brandItem, i) => (
 						<div
 							key={`${i}._!`}
-							onClick={() => pageFlip(brandItem.pageNum, ["top"])}
+							onClick={() => handleBrandClick(brandItem.brandName)}
 							className="col-2 cursor-pointer brand d-flex justify-content-center">
 							<img
 								className="brand brand-img"

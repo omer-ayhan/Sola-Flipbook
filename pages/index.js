@@ -15,7 +15,7 @@ import { CHANGE_LANG } from "../context/type";
 
 export default function Home({ allPages, brands }) {
 	const [page, setPage] = useState(0);
-	const { dispatch } = useContext(StoreContext);
+	const { state, dispatch } = useContext(StoreContext);
 	const { t } = useTranslation("common");
 	const flipBook = useRef();
 	const lang = loadState("lang", {
@@ -59,6 +59,10 @@ export default function Home({ allPages, brands }) {
 			});
 	}, []);
 
+	const currentPage = allPages.find(
+		(brand) => brand.title.toLowerCase() === state.targetBrand.toLowerCase()
+	);
+
 	return (
 		<>
 			<div
@@ -86,54 +90,57 @@ export default function Home({ allPages, brands }) {
 					disableFlipByClick={true}
 					className="demo-book"
 					ref={flipBook}>
-					<PageCover pages={pages} brands={brands} pageFlip={pageFlip} />
+					<PageCover pages={pages} brands={brands} nextPage={nextPage} />
 
-					{allPages.map((page, index) => (
-						<Page key={`${index}.|`} className="page" number={index}>
-							<div className="row m-0 p-0">
-								<div className="col-12 border-bottom position-relative">
-									<p className="text-center page-title fw-bold mb-1">
-										{page.title === "new" || page.title === "popular"
-											? t(page.title)
-											: page.title}
-									</p>
-									<p className="text-center page-title position-absolute top-0 ps-2 mb-1 fw-bold">
-										{index + 1}
-									</p>
-								</div>
-								{page.data.map((pageItem, i) => (
-									<div
-										key={`${i}.||._`}
-										className="col-4 px-2 page-item-wrapper">
-										<a
-											className="d-flex flex-column align-items-center"
-											href={`https://solastore.com.tr/detail/${encodeURLString(
-												pageItem.productShortName
-											)}:${pageItem.masterProductID}?selected=${
-												pageItem.productID
-											}`}
-											target="_blank">
-											<img
-												src={`${sources.imageMidSrc}${pageItem.picture_1}`}
-												alt={pageItem.productShortName}
-												className="page-image img-fluid overflow-hidden"
-											/>
-											<p className="text-center title fw-bold mb-0">
-												{pageItem.productShortName}
-											</p>
-											<p
-												style={{
-													color: "var(--color-primary)",
-												}}
-												className="text-center price">
-												{pageItem.singlePrice}$
-											</p>
-										</a>
+					{currentPage.data
+						.filter((curr) => curr.length > 0)
+						.map((page, index) => (
+							<Page key={`${index}.|`} className="page" number={index}>
+								<div className="row m-0 p-0">
+									<div className="col-12 border-bottom position-relative">
+										<p className="text-center page-title fw-bold mb-1">
+											{currentPage.title === "new" ||
+											currentPage.title === "popular"
+												? t(currentPage.title)
+												: currentPage.title}
+										</p>
+										<p className="text-center page-title position-absolute top-0 ps-2 mb-1 fw-bold">
+											{index + 1}
+										</p>
 									</div>
-								))}
-							</div>
-						</Page>
-					))}
+									{page.map((pageItem, i) => (
+										<div
+											key={`${i}.||._`}
+											className="col-4 px-2 page-item-wrapper">
+											<a
+												className="d-flex flex-column align-items-center"
+												href={`https://solastore.com.tr/detail/${encodeURLString(
+													pageItem.productShortName
+												)}:${pageItem.masterProductID}?selected=${
+													pageItem.productID
+												}`}
+												target="_blank">
+												<img
+													src={`${sources.imageMidSrc}${pageItem.picture_1}`}
+													alt={pageItem.productShortName}
+													className="page-image img-fluid overflow-hidden"
+												/>
+												<p className="text-center title fw-bold mb-0">
+													{pageItem.productShortName}
+												</p>
+												<p
+													style={{
+														color: "var(--color-primary)",
+													}}
+													className="text-center price">
+													{pageItem.singlePrice}$
+												</p>
+											</a>
+										</div>
+									))}
+								</div>
+							</Page>
+						))}
 				</HTMLFlipBook>
 				<Controls
 					currentPage={page}
@@ -179,22 +186,31 @@ export async function getServerSideProps() {
 			return product.picture_1 !== null;
 		});
 
-		allPages = [
-			{
-				title: "new",
-				data: newProductsFiltered.slice(0, 6),
-			},
-			{
-				title: "new",
-				data: newProductsFiltered.slice(6, 12),
-			},
-			{
-				title: "new",
-				data: newProductsFiltered.slice(12, 18),
-			},
-			{ title: "popular", data: popularProducts.slice(0, 6) },
-			{ title: "popular", data: popularProducts.slice(6, 12) },
-		];
+		// allPages = [
+		// 	{
+		// 		title: "new",
+		// 		data: newProductsFiltered.slice(0, 6),
+		// 	},
+		// 	{
+		// 		title: "new",
+		// 		data: newProductsFiltered.slice(6, 12),
+		// 	},
+		// 	{
+		// 		title: "new",
+		// 		data: newProductsFiltered.slice(12, 18),
+		// 	},
+		// 	{ title: "popular", data: popularProducts.slice(0, 6) },
+		// 	{ title: "popular", data: popularProducts.slice(6, 12) },
+		// ];
+
+		// allPages = [
+		// 	{
+		// 		title: "new",
+		// 		data: newProductsFiltered.slice(0, 50),
+		// 	},
+
+		// 	{ title: "popular", data: popularProducts.slice(0, 50) },
+		// ];
 
 		await Promise.all(
 			brands.map(async ({ brandName, brandID }) => {
@@ -204,19 +220,38 @@ export async function getServerSideProps() {
 
 				allPages.push({
 					title: brandName,
-					data: brandData.reverse().slice(0, 6),
+					data: [
+						brandData.slice(0, 6),
+						brandData.slice(6, 12),
+						brandData.slice(12, 18),
+						brandData.slice(18, 24),
+						brandData.slice(24, 30),
+						brandData.slice(30, 36),
+						brandData.slice(36, 42),
+						brandData.slice(42, 48),
+						brandData.slice(48, 54),
+						brandData.slice(54, 60),
+						brandData.slice(60, 66),
+						brandData.slice(66, 72),
+						brandData.slice(72, 78),
+					],
 				});
+				// allPages.push({
+				// 	title: brandName,
+				// 	data: brandData.reverse().slice(0, 6),
+				// });
 			})
 		);
 
 		return {
 			props: {
-				allPages: [
-					...allPages.slice(0, 5),
-					...allPages
-						.slice(5, allPages.length)
-						.sort((a, b) => a.title.localeCompare(b.title)),
-				],
+				// allPages: [
+				// 	...allPages.slice(0, 5),
+				// 	...allPages
+				// 		.slice(5, allPages.length)
+				// 		.sort((a, b) => a.title.localeCompare(b.title)),
+				// ],
+				allPages,
 				brands: brands
 					.sort((a, b) => a.brandName.localeCompare(b.brandName))
 					.map((item, i) => ({

@@ -1,3 +1,4 @@
 export default {
-  lang: { name: "ru", flag: "ru" },
+	lang: { name: "ru", flag: "ru" },
+	targetBrand: "CHARMING",
 };
