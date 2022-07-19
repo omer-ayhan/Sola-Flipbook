@@ -15,6 +15,7 @@ import { CHANGE_LANG } from "../context/type";
 
 export default function Home({ allPages, brands }) {
 	const [page, setPage] = useState(0);
+	const [isSafari, setIsSafari] = useState(false);
 	const { state, dispatch } = useContext(StoreContext);
 	const { t } = useTranslation("common");
 	const flipBook = useRef();
@@ -49,6 +50,9 @@ export default function Home({ allPages, brands }) {
 	};
 
 	useEffect(() => {
+		if (navigator.userAgent) {
+			setIsSafari(/^((?!chrome|android).)*safari/i.test(navigator.userAgent));
+		}
 		dispatch({
 			type: CHANGE_LANG,
 			payload: lang,
@@ -123,7 +127,9 @@ export default function Home({ allPages, brands }) {
 												<img
 													src={`${sources.imageMidSrc}${pageItem.picture_1}`}
 													alt={pageItem.productShortName}
-													className="page-image img-fluid overflow-hidden"
+													className={`${
+														!isSafari ? "page-image" : ""
+													} img-fluid overflow-hidden`}
 												/>
 												<p className="text-center title fw-bold mb-0">
 													{pageItem.productShortName}

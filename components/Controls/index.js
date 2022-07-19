@@ -3,6 +3,7 @@ import useTranslation from "next-translate/useTranslation";
 import { StoreContext } from "../../context/StoreProvider";
 import { CHANGE_LANG } from "../../context/type";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 const langs = [
 	{
@@ -52,138 +53,6 @@ export default function Controls({
 		});
 	};
 
-	const desktopControls = () => (
-		<>
-			<div
-				onClick={() => firstPage("desktop")}
-				className={`controls-btn ${currentPage === 0 && "disabled"}`}>
-				<ion-icon name="play-back-outline" size="large" />
-				<p className="p-0 m-0 text-center">{t("first")}</p>
-			</div>
-			<div
-				onClick={() => prevPage("desktop")}
-				className={`controls-btn ${currentPage === 0 && "disabled"}`}>
-				<ion-icon name="chevron-back-outline" size="large" />
-				<p className="p-0 m-0 text-center">{t("prev")}</p>
-			</div>
-			<div onClick={nextPage} className="controls-btn">
-				<ion-icon name="chevron-forward-outline" size="large" />
-				<p className="p-0 m-0 text-center">{t("next")}</p>
-			</div>
-			<div onClick={lastPage} className="controls-btn">
-				<ion-icon name="play-forward-outline" size="large" />
-				<p className="p-0 m-0 text-center">{t("last")}</p>
-			</div>
-			<div className="dropdown">
-				<a
-					className="btn dropdown-toggle"
-					href="#"
-					role="button"
-					id="dropdownMenuLink"
-					data-bs-toggle="dropdown"
-					aria-expanded="false">
-					<img
-						className="flag"
-						src={`public/img/flags/${state.lang.flag}.jpg`}
-						// src={`/img/flags/${state.lang.flag}.jpg`}
-						alt={state.lang.name}
-					/>
-					<span className="mx-2 fs-5 fw-bold text-uppercase">
-						{state.lang.name}
-					</span>
-				</a>
-
-				<ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-					{langs.map(({ name, flag }, i) => (
-						<li key={`${name}.|${i}`}>
-							<a
-								onClick={() => changeLang(name, flag)}
-								className="dropdown-item"
-								href="#">
-								<img
-									className="flag"
-									src={`public/img/flags/${flag}.jpg`}
-									// src={`/img/flags/${flag}.jpg`}
-									alt={name}
-								/>
-								<span className="mx-2 fs-5 fw-bold text-uppercase">{name}</span>
-							</a>
-						</li>
-					))}
-				</ul>
-			</div>
-		</>
-	);
-
-	const mobileControls = () => (
-		<>
-			<div className="d-flex">
-				<div
-					onClick={prevPage}
-					className={`controls-btn ${currentPage === 0 && "disabled"}`}>
-					<ion-icon name="chevron-back-outline" size="large" />
-					<p className="p-0 m-0 text-center">{t("prev")}</p>
-				</div>
-				<div className="dropdown">
-					<a
-						className="btn dropdown-toggle"
-						href="#"
-						role="button"
-						id="dropdownMenuLink"
-						data-bs-toggle="dropdown"
-						aria-expanded="false">
-						<img
-							className="flag"
-							src={`public/img/flags/${state.lang.flag}.jpg`}
-							// src={`/img/flags/${state.lang.flag}.jpg`}
-							alt={state.lang.name}
-						/>
-						<span className="mx-2 fs-5 fw-bold text-uppercase">
-							{state.lang.name}
-						</span>
-					</a>
-
-					<ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-						{langs.map(({ name, flag }, i) => (
-							<li key={`${name}.|${i}`}>
-								<a
-									onClick={() => changeLang(name, flag)}
-									className="dropdown-item"
-									href="#">
-									<img
-										className="flag"
-										src={`public/img/flags/${flag}.jpg`}
-										// src={`/img/flags/${flag}.jpg`}
-										alt={name}
-									/>
-									<span className="mx-2 fs-5 fw-bold text-uppercase">
-										{name}
-									</span>
-								</a>
-							</li>
-						))}
-					</ul>
-				</div>
-				<div onClick={nextPage} className="controls-btn">
-					<ion-icon name="chevron-forward-outline" size="large" />
-					<p className="p-0 m-0 text-center">{t("next")}</p>
-				</div>
-			</div>
-			<div className="w-100 d-flex justify-content-around">
-				<div
-					onClick={firstPage}
-					className={`controls-btn ${currentPage === 0 && "disabled"}`}>
-					<ion-icon name="play-back-outline" size="large" />
-					<p className="p-0 m-0 text-center">{t("first")}</p>
-				</div>
-				<div onClick={lastPage} className="controls-btn">
-					<ion-icon name="play-forward-outline" size="large" />
-					<p className="p-0 m-0 text-center">{t("last")}</p>
-				</div>
-			</div>
-		</>
-	);
-
 	return (
 		<>
 			<div
@@ -202,11 +71,15 @@ export default function Controls({
 				<ion-icon name="chevron-forward-outline" size="large" />
 				<p className="p-0 m-0 text-center text-white">{t("next")}</p>
 			</div>
+
 			<div
 				style={{
 					background: "rgba(0, 0, 0, 0.3)",
 				}}
 				className="position-fixed bottom-0 start-50 translate-middle-x dropdown">
+				<a onClick={firstPage} className="btn text-white">
+					<ion-icon name="home" size="large" />
+				</a>
 				<a
 					className="btn dropdown-toggle"
 					href="#"
